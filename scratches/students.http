@@ -1,1 +1,40 @@
+### (1) создадим перечень студентов с группами
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "studentName": "Andrey Kovalev",
+  "groupName": "403a"
+}
+###
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "studentName": "Elena Dolgova",
+  "groupName": "403a"
+}
+###
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "studentName": "Evgeny Zuev",
+  "groupName": "403b"
+}
+
+
+### (2) получим студентов по их идентификаторам
 GET http://localhost:8080/students/1
+###
+GET http://localhost:8080/students/2
+###
+GET http://localhost:8080/students/3
+
+
+
+
+### (3) получим перечень студентов по номеру группы
+GET http://localhost:8080/students?groupName=403a
+###
+GET http://localhost:8080/students?groupName=403b
