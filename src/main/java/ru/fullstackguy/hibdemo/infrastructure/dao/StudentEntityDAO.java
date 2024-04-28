@@ -3,6 +3,7 @@ package ru.fullstackguy.hibdemo.infrastructure.dao;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import ru.fullstackguy.hibdemo.domain.entity.GroupEntity;
 import ru.fullstackguy.hibdemo.domain.entity.StudentEntity;
 
 import java.util.Collections;
@@ -22,7 +23,17 @@ public class StudentEntityDAO {
     }
 
     public StudentEntity create(String studentName, String groupNumber) {
-        // todo: добавить реализацию
+        var group = new GroupEntity();
+        group.setNumber(groupNumber);
+
+        entityManager.persist(group);
+
+        var studentEntity = new StudentEntity();
+        studentEntity.setName(studentName);
+//        studentEntity.setGroup(group);
+        entityManager.persist(studentEntity);
+
+        return studentEntity;
     }
 
     public List<StudentEntity> findByGroupName(String groupName) {

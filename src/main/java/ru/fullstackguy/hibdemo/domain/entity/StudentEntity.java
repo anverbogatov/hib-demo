@@ -1,9 +1,11 @@
 package ru.fullstackguy.hibdemo.domain.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -17,8 +19,8 @@ public class StudentEntity {
 
     private String name;
 
-    @ManyToOne
-    private GroupEntity group;
+//    @ManyToOne
+//    private GroupEntity group;
 
     public long getId() {
         return id;
@@ -37,10 +39,11 @@ public class StudentEntity {
     }
 
     public GroupEntity getGroup() {
-        return group;
+//        return group;
+        return null;
     }
 
     public void setGroup(GroupEntity groupEntity) {
-        this.group = groupEntity;
+//        this.group = groupEntity;
     }
 }
