@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import ru.fullstackguy.hibdemo.api.dto.StudentDto;
 import ru.fullstackguy.hibdemo.domain.entity.GroupDetailsEntity;
 import ru.fullstackguy.hibdemo.domain.entity.GroupEntity;
+import ru.fullstackguy.hibdemo.domain.entity.PassportEntity;
 import ru.fullstackguy.hibdemo.domain.entity.StudentEntity;
 import ru.fullstackguy.hibdemo.infrastructure.repositories.GroupRepository;
 
@@ -25,8 +26,13 @@ public class GroupsService {
                             List<StudentDto> students) {
         var groupStudents = students.stream()
                 .map(el -> {
+                    var passport = new PassportEntity();
+                    passport.setSeries(el.passport().series());
+                    passport.setNumber(el.passport().number());
+
                     var student = new StudentEntity();
                     student.setName(el.name());
+                    student.setPassport(passport);
                     return student;
                 })
                 .toList();
