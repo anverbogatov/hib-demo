@@ -19,6 +19,9 @@ public class GroupController {
 
     @PostMapping
     public void createStudent(@RequestBody CreateGroupDto dto) {
-        groupApplicationService.createNewGroup(dto.groupNumber(), dto.groupDetails().telegramChannel());
+        groupApplicationService.createNewGroup(
+                dto.groupNumber(),
+                dto.groupDetails().telegramChannel(),
+                dto.students());
     }
 }
