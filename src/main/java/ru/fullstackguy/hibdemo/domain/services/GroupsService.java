@@ -9,6 +9,7 @@ import ru.fullstackguy.hibdemo.domain.entity.GroupDetailsEntity;
 import ru.fullstackguy.hibdemo.domain.entity.GroupEntity;
 import ru.fullstackguy.hibdemo.domain.entity.PassportEntity;
 import ru.fullstackguy.hibdemo.domain.entity.StudentEntity;
+import ru.fullstackguy.hibdemo.domain.entity.SubjectEntity;
 import ru.fullstackguy.hibdemo.infrastructure.repositories.GroupRepository;
 
 import java.util.List;
@@ -30,9 +31,18 @@ public class GroupsService {
                     passport.setSeries(el.passport().series());
                     passport.setNumber(el.passport().number());
 
+                    var subjects = el.subjects().stream()
+                            .map(subj -> {
+                                var subject = new SubjectEntity();
+                                subject.setName(subj);
+                                return subject;
+                            })
+                            .toList();
+
                     var student = new StudentEntity();
                     student.setName(el.name());
                     student.setPassport(passport);
+                    student.setSubjects(subjects);
                     return student;
                 })
                 .toList();
