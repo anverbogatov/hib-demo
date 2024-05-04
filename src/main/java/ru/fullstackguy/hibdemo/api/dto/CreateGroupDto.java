@@ -1,4 +1,11 @@
 package ru.fullstackguy.hibdemo.api.dto;
 
-public record CreateGroupDto(String groupNumber) {
+import org.springframework.lang.NonNull;
+
+public record CreateGroupDto(
+        String groupNumber,
+
+        @NonNull
+        GroupDetailsDto groupDetails
+) {
 }

@@ -12,7 +12,7 @@ public class GroupApplicationService {
     @Autowired
     private final GroupsService groupsService;
 
-    public void createNewGroup(String groupNumber) {
-        groupsService.createGroup(groupNumber);
+    public void createNewGroup(String groupNumber, String telegramChannel) {
+        groupsService.createGroup(groupNumber, telegramChannel);
     }
 }
