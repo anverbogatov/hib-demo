@@ -57,4 +57,8 @@ public class GroupsService {
 
         repository.save(group);
     }
+
+    public StudentDto getStudent() {
+        return null;
+    }
 }

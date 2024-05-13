@@ -18,6 +18,24 @@ public class GroupApplicationService {
     public void createNewGroup(String groupNumber,
                                String telegramChannel,
                                List<StudentDto> students) {
+        telegramChannel += "1111111";
         groupsService.createGroup(groupNumber, telegramChannel, students);
+    }
+
+    public StudentDto findStudent() {
+        StudentDto student = null;
+        try {
+            student = groupsService.getStudent();
+        } catch (RuntimeException e) {
+          // handle ex
+        }
+
+        if (student.name().equals("Denis")) {
+
+        } else {
+
+        }
+
+        return student;
     }
 }
