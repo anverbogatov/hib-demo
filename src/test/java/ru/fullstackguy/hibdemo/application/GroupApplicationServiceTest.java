@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.fullstackguy.hibdemo.api.dto.StudentDto;
 import ru.fullstackguy.hibdemo.domain.services.GroupsService;
 
@@ -13,6 +14,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class GroupApplicationServiceTest {
+
 
     private GroupApplicationService service;
 
